@@ -3,7 +3,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import type { Dzikir } from "@/data/dzikir";
-import { X, BookOpen, CheckCircle, Clock, Play, ChevronLeft, ChevronRight, Check, RotateCcw } from "lucide-react";
+import { X, BookOpen, Play, ChevronLeft, ChevronRight, Check } from "lucide-react";
 import { dzikirList } from "@/data/dzikir";
 
 interface Props {
@@ -13,13 +13,6 @@ interface Props {
   onClose: () => void;
   session: "morning" | "evening";
 }
-
-const statusIcon: Record<string, React.ReactNode> = {
-  shahih: <CheckCircle className="w-3 h-3" />,
-  hasan: <Clock className="w-3 h-3" />,
-  dhaif: <X className="w-3 h-3" />,
-  dishahihkan: <BookOpen className="w-3 h-3" />,
-};
 
 const sessionStyle = {
   morning: { 
@@ -44,6 +37,11 @@ export default function DzikirStepModal({ dzikirs, counts, onUpdateCount, onClos
   const [step, setStep] = useState(0);
   const [showConfirm, setShowConfirm] = useState(false);
   
+  // State untuk Swipe Down Gesture
+  const [touchStartY, setTouchStartY] = useState<number | null>(null);
+  const [translateY, setTranslateY] = useState(0);
+  const CLOSE_THRESHOLD = 120; // Jarak tarik minimal untuk menutup modal
+
   const dzikir = dzikirs[step];
   const index = dzikirList.indexOf(dzikir);
   const count = counts[index] || 0;
@@ -52,32 +50,80 @@ export default function DzikirStepModal({ dzikirs, counts, onUpdateCount, onClos
   const isLast = step === dzikirs.length - 1;
   const style = sessionStyle[session];
 
-  // Calculate progress percentage for the bar
   const progressPercent = Math.min((count / targetCount) * 100, 100);
 
-  const handleIncrement = () => {
+  const handleIncrement = useCallback(() => {
     const newCount = count + 1;
     onUpdateCount(index, newCount);
     if (targetCount > 1 && newCount % targetCount === 0) {
       setShowConfirm(true);
-      // Optional: Add vibration feedback here if supported
       if (navigator.vibrate) navigator.vibrate(50);
+    }
+  }, [count, index, targetCount, onUpdateCount]);
+
+  const handleNext = useCallback(() => { 
+    if (step < dzikirs.length - 1) setStep(step + 1); 
+  }, [step, dzikirs.length]);
+
+  const handlePrev = useCallback(() => { 
+    if (step > 0) setStep(step - 1); 
+  }, [step]);
+
+  // --- Swipe Down Handlers ---
+  const handleTouchStart = (e: React.TouchEvent) => {
+    // Abaikan jika menyentuh tombol interaktif
+    const target = e.target as HTMLElement;
+    if (target.closest('button') || target.closest('[data-no-swipe="true"]')) return;
+    
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartY === null) return;
+    
+    const currentY = e.touches[0].clientY;
+    const diff = currentY - touchStartY;
+    
+    // Hanya izinkan drag ke bawah (nilai positif)
+    if (diff > 0) {
+      e.preventDefault(); // Mencegah scroll background
+      setTranslateY(diff);
     }
   };
 
-  const handleNext = () => { if (step < dzikirs.length - 1) setStep(step + 1); };
-  const handlePrev = () => { if (step > 0) setStep(step - 1); };
+  const handleTouchEnd = () => {
+    if (translateY >= CLOSE_THRESHOLD) {
+      onClose();
+      if (navigator.vibrate) navigator.vibrate(30);
+    } else {
+      setTranslateY(0);
+    }
+    setTouchStartY(null);
+  };
+  // -------------------------
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (showConfirm) {
-      if (e.code === "Enter" || e.code === "Space") { e.preventDefault(); setShowConfirm(false); }
+      if (e.code === "Enter" || e.code === "Space") { 
+        e.preventDefault(); 
+        setShowConfirm(false); 
+      }
       return;
     }
-    if (e.code === "Space" || e.code === "Enter") { e.preventDefault(); handleIncrement(); }
-    if (e.code === "ArrowRight") { e.preventDefault(); handleNext(); }
-    if (e.code === "ArrowLeft") { e.preventDefault(); handlePrev(); }
+    if (e.code === "Space" || e.code === "Enter") { 
+      e.preventDefault(); 
+      handleIncrement(); 
+    }
+    if (e.code === "ArrowRight") { 
+      e.preventDefault(); 
+      handleNext(); 
+    }
+    if (e.code === "ArrowLeft") { 
+      e.preventDefault(); 
+      handlePrev(); 
+    }
     if (e.code === "Escape") onClose();
-  }, [count, step, showConfirm]);
+  }, [showConfirm, handleIncrement, handleNext, handlePrev, onClose]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -85,21 +131,24 @@ export default function DzikirStepModal({ dzikirs, counts, onUpdateCount, onClos
   }, [handleKeyDown]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 ">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+      {/* Overlay tetap statis */}
       <div className="absolute inset-0 transition-opacity" onClick={onClose} />
       
-      <div className={`relative w-full sm:max-w-lg bg-[#1a1a1a] border rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col max-h-[95vh] sm:max-h-[90vh] animate-in slide-in-from-bottom-10 fade-in duration-200 overflow-hidden ${style.border}`}>
+      {/* Modal Container dengan Transform Swipe */}
+      <div 
+        className={`relative w-full sm:max-w-lg bg-[#1a1a1a] border rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col max-h-[95vh] sm:max-h-[90vh] animate-in slide-in-from-bottom-10 fade-in duration-200 overflow-hidden ${style.border}`}
+        style={{ 
+          transform: `translateY(${translateY}px)`,
+          transition: touchStartY ? 'none' : 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1)'
+        }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         
-        {/* Top Progress Bar */}
-        <div className="h-1 w-full bg-neutral-800">
-          <div 
-            className={`h-full transition-all duration-300 ${session === 'morning' ? 'bg-amber-500' : 'bg-indigo-500'}`} 
-            style={{ width: `${progressPercent}%` }} 
-          />
-        </div>
-
         {/* Header */}
-        <div className="shrink-0 px-5 py-4 flex items-center justify-between border-b border-white/10 bg-[#1a1a1a]">
+        <div className="shrink-0 px-5 py-4 flex items-center justify-between bg-[#1a1a1a] data-no-swipe">
           <div className="flex items-center gap-3">
             <span className={`text-xs font-bold px-2 py-1 rounded-md ${style.bg} ${style.text} border ${style.border}`}>
               {step + 1} / {dzikirs.length}
@@ -109,6 +158,14 @@ export default function DzikirStepModal({ dzikirs, counts, onUpdateCount, onClos
           <button onClick={onClose} className="p-2 hover:bg-white/10 rounded-full text-white/60 hover:text-white transition-colors">
             <X size={20} />
           </button>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="h-1 w-full bg-neutral-800 shrink-0">
+          <div 
+            className={`h-full transition-all duration-300 ${session === 'morning' ? 'bg-amber-500' : 'bg-indigo-500'}`} 
+            style={{ width: `${progressPercent}%` }} 
+          />
         </div>
 
         {/* Content Scrollable */}

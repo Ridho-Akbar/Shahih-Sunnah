@@ -28,4 +28,7 @@
   *::-webkit-scrollbar {
     display: none;
   }
+  html {
+  overscroll-behavior-y: contain;
+ } 
 }
