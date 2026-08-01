@@ -1,0 +1,14 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle (Optional, bisa dihapus jika ingin transparan) -->
+  <circle cx="256" cy="256" r="256" fill="#064E3B"/>
+  
+  <!-- Book Base -->
+  <path d="M128 160C128 142.327 142.327 128 160 128H352C369.673 128 384 142.327 384 160V384C384 401.673 369.673 416 352 416H160C142.327 416 128 401.673 128 384V160Z" fill="#10B981" stroke="#FFFFFF" stroke-width="24" stroke-linejoin="round"/>
+  
+  <!-- Open Pages Detail -->
+  <path d="M256 128V416" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M160 200H352" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round" stroke-opacity="0.5"/>
+  
+  <!-- Star/Light of Guidance (Shahih) -->
+  <path d="M256 80L271.5 120.5H314.5L280 148.5L295.5 189L256 163L216.5 189L232 148.5L197.5 120.5H240.5L256 80Z" fill="#FCD34D" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/>
+</svg>
