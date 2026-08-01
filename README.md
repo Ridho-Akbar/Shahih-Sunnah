@@ -1,18 +1,29 @@
 # Shahih Sunnah
 
-Kumpulan amalan dan hadits shahih berdasarkan manhaj Salafush Shalih. Website ini hadir sebagai panduan beragama di atas pemahaman Ahlus Sunnah wal Jama'ah, menyajikan dalil-dalil dari Al-Qur'an dan Sunnah sesuai pemahaman generasi terbaik umat ini.
+Aplikasi ini hanyalah ikhtiar kecil untuk memudahkan kaum muslimin mengamalkan zikir pagi petang dan amalan sunnah lainnya. Segala kebenaran datangnya dari Allah, dan segala kekurangan adalah dari kami. Semoga bermanfaat dan menjadi pemberat timbangan kebaikan di yaumil hisab.
+
+Allahu a'lam bish shawab.
+
+---
 
 ## Fitur
 
-- 📖 Kumpulan hadits shahih dan dhaif
-- 🕌 Amalan harian sesuai sunnah
-- 📚 Fikih berdasarkan dalil shahih
-- 🛡️ Bantahan terhadap amalan tanpa tuntunan
-- 🔍 Verifikasi dalil dan riwayat
+- **Zikir Pagi dan Petang** — Dilengkapi counter dan sumber hadits
+- **Kumpulan Doa** — Doa-doa harian dari Al-Qur'an dan Sunnah
+- **Panduan Sholat** — Bacaan sholat dan kumpulan hadits sholat sunnah
+- **Puasa Sunnah** — Tuntunan puasa sunnah berdasarkan dalil
 
-## Tech Stack
+*Semua konten diambil dari hadits shahih dan hasan.*
 
-- **Next.js** — React framework
-- **TypeScript** — Type safety
-- **TailwindCSS** — Styling
-- **Vercel** — Hosting
+---
+
+## Teknologi
+
+- Next.js + TypeScript
+- Tailwind CSS
+
+---
+
+## Website
+
+🔗 [shahih-sunnah.vercel.app](https://shahih-sunnah.vercel.app)
