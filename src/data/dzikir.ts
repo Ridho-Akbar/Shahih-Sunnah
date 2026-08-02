@@ -4,7 +4,7 @@ export interface Dzikir {
   arabic: string;
   latin: string;
   translation: string;
-  evidence: string; // Berisi teks hadits/sabda Nabi yang relevan
+  evidence: string;
   status: "shahih" | "hasan" | "dhaif" | "dishahihkan";
   statusBy?: string;
   category: ("morning" | "evening" | "anytime")[];
@@ -15,8 +15,8 @@ export interface Dzikir {
 export const dzikirList: Dzikir[] = [
   {
     title: "Ayat Kursi",
-    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
-    latin: "Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa naum, lahuu maa fis-samaawaati wa maa fil-ardh, man dzal-ladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa baina aidiihim wa maa khalfahum, wa laa yuhiithuuna bisyai'im-min 'ilmihii illaa bimaa syaa', wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya'uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.",
+    arabic: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ، لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ، لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ، مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ، يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ، وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ، وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ، وَلَا يَئُودُهُ حِفْظُهُمَا، وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+    latin: "Allaahu laa ilaaha illaa huwal-hayyul-qayyuum, laa ta'khudzuhuu sinatuw-wa laa naum, lahuu maa fis-samaawaati wa maa fil-ardh, man dzal-ladzii yasyfa'u 'indahuu illaa bi-idznih, ya'lamu maa baina aidiihim wa maa khalfahum, wa laa yuhiithuuna bisyai-im-min 'ilmihii illaa bimaa syaa', wasi'a kursiyyuhus-samaawaati wal-ardh, wa laa ya'uuduhuu hifzhuhumaa, wa huwal-'aliyyul-'azhiim.",
     translation: "Allah, tidak ada ilah (yang berhak disembah) melainkan Dia Yang Maha Hidup lagi terus menerus mengurus (makhluk-Nya). Tidak mengantuk dan tidak tidur. Kepunyaan-Nya apa yang di langit dan di bumi. Tiada yang dapat memberi syafaat di sisi Allah tanpa izin-Nya. Allah mengetahui apa-apa yang di hadapan mereka dan di belakang mereka, dan mereka tidak mengetahui apa-apa dari ilmu Allah melainkan apa yang dikehendaki-Nya. Kursi Allah meliputi langit dan bumi. Dan Allah tidak merasa berat memelihara keduanya, dan Allah Maha Tinggi lagi Maha Besar.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa membacanya ketika pagi, maka ia akan dilindungi (dari segala gangguan) hingga sore. Dan barangsiapa membacanya ketika sore, maka ia akan dilindungi hingga pagi.'",
     status: "shahih",
@@ -27,7 +27,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Surah Al-Ikhlas",
-    arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ ۞ اللَّهُ الصَّمَدُ ۞ لَمْ يَلِدْ وَلَمْ يُولَدْ ۞ وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ",
+    arabic: "قُلْ هُوَ اللَّهُ أَحَدٌ، اللَّهُ الصَّمَدُ، لَمْ يَلِدْ وَلَمْ يُولَدْ، وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ",
     latin: "Qul huwallaahu ahad. Allaahush-shamad. Lam yalid wa lam yuulad. Wa lam yakul-lahuu kufuwan ahad.",
     translation: "Katakanlah: Dialah Allah, Yang Maha Esa. Allah adalah Tuhan yang bergantung kepada-Nya segala sesuatu. Dia tiada beranak dan tidak pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia.",
     evidence: "Rasulullah ﷺ bersabda kepada Uqbah bin Amir: 'Bacalah Qul Huwallahu Ahad, Qul A'udzu Birabbil Falaq, dan Qul A'udzu Birabbin Naas ketika engkau masuk waktu pagi dan petang sebanyak tiga kali, maka itu cukup bagimu dari segala sesuatu.'",
@@ -39,7 +39,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Surah Al-Falaq",
-    arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ۞ مِنْ شَرِّ مَا خَلَقَ ۞ وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ ۞ وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ۞ وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ",
+    arabic: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ، مِنْ شَرِّ مَا خَلَقَ، وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ، وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ، وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ",
     latin: "Qul a'uudzu birabbil-falaq. Min syarri maa khalaq. Wa min syarri ghaasiqin idzaa waqab. Wa min syarrin-naffaatsaati fil-'uqad. Wa min syarri haasidin idzaa hasad.",
     translation: "Katakanlah: Aku berlindung kepada Tuhan Yang Menguasai subuh, dari kejahatan makhluk-Nya, dan dari kejahatan malam apabila telah gelap gulita, dan dari kejahatan wanita-wanita tukang sihir yang menghembus pada buhul-buhul, dan dari kejahatan pendengki bila ia dengki.",
     evidence: "Rasulullah ﷺ bersabda: 'Bacalah Qul Huwallahu Ahad, Qul A'udzu Birabbil Falaq, dan Qul A'udzu Birabbin Naas ketika engkau masuk waktu pagi dan petang sebanyak tiga kali, maka itu cukup bagimu dari segala sesuatu.'",
@@ -51,7 +51,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Surah An-Naas",
-    arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ ۞ مَلِكِ النَّاسِ ۞ إِلَٰهِ النَّاسِ ۞ مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ۞ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ۞ مِنَ الْجِنَّةِ وَالنَّاسِ",
+    arabic: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ، مَلِكِ النَّاسِ، إِلَٰهِ النَّاسِ، مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ، الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ، مِنَ الْجِنَّةِ وَالنَّاسِ",
     latin: "Qul a'uudzu birabbin-naas. Malikin-naas. Ilaahin-naas. Min syarril-waswaasil-khannaas. Alladzii yuwaswisu fii shuduurin-naas. Minal-jinnati wan-naas.",
     translation: "Katakanlah: Aku berlindung kepada Tuhan (yang memelihara dan menguasai) manusia. Raja manusia. Sembahan manusia. Dari kejahatan (bisikan) setan yang biasa bersembunyi, yang membisikkan (kejahatan) ke dalam dada manusia, dari (golongan) jin dan manusia.",
     evidence: "Rasulullah ﷺ bersabda: 'Bacalah Qul Huwallahu Ahad, Qul A'udzu Birabbil Falaq, dan Qul A'udzu Birabbin Naas ketika engkau masuk waktu pagi dan petang sebanyak tiga kali, maka itu cukup bagimu dari segala sesuatu.'",
@@ -63,7 +63,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Sayyidul Istighfar",
-    arabic: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
+    arabic: "اللَّهُمَّ أَنْتَ رَبِّي، لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي، فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ",
     latin: "Allahumma anta rabbii laa ilaaha illaa anta khalaqtanii wa anaa 'abduka wa anaa 'alaa 'ahdika wa wa'dika mastatha'tu, a'uudzu bika min syarri maa shana'tu, abuu'u laka bini'matika 'alayya wa abuu'u bidzanbii faghfir lii fa-innahuu laa yaghfirudz-dzunuuba illaa anta.",
     translation: "Ya Allah, Engkau adalah Rabbku, tidak ada ilah yang berhak disembah kecuali Engkau. Engkau yang menciptakanku dan aku adalah hamba-Mu. Aku berada di atas janji-Mu dan ancaman-Mu semampuku. Aku berlindung kepada-Mu dari kejahatan apa yang aku perbuat. Aku mengakui nikmat-Mu kepadaku dan aku mengakui dosaku, maka ampunilah aku. Karena sesungguhnya tidak ada yang dapat mengampuni dosa-dosa selain Engkau.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan doa ini di siang hari dengan penuh keyakinan, lalu ia meninggal sebelum sore hari, maka ia termasuk penghuni surga. Dan barangsiapa mengucapkannya di malam hari dengan penuh keyakinan, lalu ia meninggal sebelum pagi hari, maka ia termasuk penghuni surga.'",
@@ -75,7 +75,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Memasuki Waktu Pagi",
-    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
+    arabic: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذَا الْيَوْمِ وَخَيْرَ مَا بَعْدَهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
     latin: "Ashbahnaa wa ashbahal-mulku lillaahi wal-hamdu lillaahi laa ilaaha illallaahu wahdahuu laa syariika lahuu lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syai'in qadiir. Rabbi as'aluka khaira maa fii haadzal-yaumi wa khaira maa ba'dahuu wa a'uudzu bika min syarri maa fii haadzal-yaumi wa syarri maa ba'dahu. Rabbi a'uudzu bika minal-kasali wa suu'il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.",
     translation: "Kami telah memasuki waktu pagi dan kerajaan milik Allah, segala puji bagi Allah. Tidak ada ilah yang berhak disembah kecuali Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Maha Kuasa atas segala sesuatu. Wahai Rabbku, aku memohon kepada-Mu kebaikan hari ini dan kebaikan setelahnya, dan aku berlindung kepada-Mu dari kejahatan hari ini dan kejahatan setelahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan buruknya masa tua. Wahai Rabbku, aku berlindung kepada-Mu dari siksa neraka dan siksa kubur.",
     evidence: "Dari Abdullah bin Khubaib radhiyallahu 'anhu, Rasulullah ﷺ bersabda: 'Bacalah ayat Kursi dan dua surat terakhir Al-Qur'an (Al-Falaq & An-Naas) ketika engkau masuk waktu pagi dan petang.' (Dalam riwayat lain disebutkan doa ini sebagai bagian dari dzikir pagi yang diajarkan Nabi).",
@@ -87,7 +87,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Memasuki Waktu Petang",
-    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
+    arabic: "أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَٰذِهِ اللَّيْلَةِ وَخَيْرَ مَا بَعْدَهَا، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَٰذِهِ اللَّيْلَةِ وَشَرِّ مَا بَعْدَهَا، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ",
     latin: "Amsainaa wa amsal-mulku lillaahi wal-hamdu lillaahi laa ilaaha illallaahu wahdahuu laa syariika lahuu lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syai'in qadiir. Rabbi as'aluka khaira maa fii haadzihil-lailati wa khaira maa ba'dahaa wa a'uudzu bika min syarri maa fii haadzihil-lailati wa syarri maa ba'dahaa. Rabbi a'uudzu bika minal-kasali wa suu'il-kibar, rabbi a'uudzu bika min 'adzaabin fin-naari wa 'adzaabin fil-qabr.",
     translation: "Kami telah memasuki waktu petang dan kerajaan milik Allah, segala puji bagi Allah. Tidak ada ilah yang berhak disembah kecuali Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Maha Kuasa atas segala sesuatu. Wahai Rabbku, aku memohon kepada-Mu kebaikan malam ini dan kebaikan setelahnya, dan aku berlindung kepada-Mu dari kejahatan malam ini dan kejahatan setelahnya. Wahai Rabbku, aku berlindung kepada-Mu dari kemalasan dan buruknya masa tua. Wahai Rabbku, aku berlindung kepada-Mu dari siksa neraka dan siksa kubur.",
     evidence: "Dari Abdullah bin Khubaib radhiyallahu 'anhu, Rasulullah ﷺ mengajarkan doa ini sebagai bentuk penyerahan diri dan perlindungan di awal waktu petang.",
@@ -99,7 +99,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Pengakuan Nikmat di Pagi Hari",
-    arabic: "اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
+    arabic: "اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ، أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
     latin: "Allahumma maa ashbaha bii min ni'matiin au bi-ahadim min khalqika fa minka wahdaka laa syariika laka, fa lakal-hamdu wa lakasy-syukru.",
     translation: "Ya Allah, nikmat yang kuterima pada pagi ini atau yang diterima oleh salah seorang dari makhluk-Mu adalah dari-Mu semata, tidak ada sekutu bagi-Mu. Maka bagi-Mu segala puji dan bagi-Mu segala rasa syukur.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan doa ini di pagi hari, maka ia telah menunaikan kewajibannya untuk bersyukur pada hari tersebut.'",
@@ -111,7 +111,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Pengakuan Nikmat di Petang Hari",
-    arabic: "اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
+    arabic: "اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ، أَوْ بِأَحَدٍ مِنْ خَلْقِكَ، فَمِنْكَ وَحْدَكَ لَا شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ",
     latin: "Allahumma maa amsaa bii min ni'matiin au bi-ahadim min khalqika fa minka wahdaka laa syariika laka, fa lakal-hamdu wa lakasy-syukru.",
     translation: "Ya Allah, nikmat yang kuterima pada petang ini atau yang diterima oleh salah seorang dari makhluk-Mu adalah dari-Mu semata, tidak ada sekutu bagi-Mu. Maka bagi-Mu segala puji dan bagi-Mu segala rasa syukur.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan doa ini di petang hari, maka ia telah menunaikan kewajibannya untuk bersyukur pada malam tersebut.'",
@@ -123,7 +123,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Memohon Perlindungan 5 Hal & Afiat",
-    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي",
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي دِينِي وَدُنْيَايَ وَأَهْلِي وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَيْنِ يَدَيَّ وَمِنْ خَلْفِي وَعَنْ يَمِينِي وَعَنْ شِمَالِي وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي",
     latin: "Allahumma innii as'alukal-'afwa wal-'aafiyata fid-dunyaa wal-aakhirah. Allahumma innii as'alukal-'afwa wal-'aafiyata fii diinii wa dunyaaya wa ahlii wa maalii. Allahummastur 'auraatii wa aamin rau'aatii. Allahummahfazhnii mim-baini yadayya wa min khalfii wa 'an yamiinii wa 'an syimaalii wa min fauqii wa a'uudzu bi'azhamatika an ughtaala min tahtii.",
     translation: "Ya Allah, sesungguhnya aku memohon ampunan dan keselamatan di dunia dan akhirat. Ya Allah, aku memohon ampunan dan keselamatan dalam agamaku, duniaku, keluargaku, dan hartaku. Ya Allah, tutupilah auratku dan tenteramkanlah aku dari rasa takut. Ya Allah, peliharalah aku dari depan, belakang, kanan, kiri, dan dari atasku. Aku berlindung dengan keagungan-Mu agar aku tidak disambar dari bawahku.",
     evidence: "Rasulullah ﷺ bersabda: 'Tidaklah seorang hamba membaca doa ini di pagi dan petang hari, melainkan ia akan dijaga dari segala arah.'",
@@ -135,7 +135,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Perlindungan dari Kesyirikan",
-    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أُشْرِكَ بِكَ وَأَنَا أَعْلَمُ وَأَسْتَغْفِرُكَ لِمَا لَا أَعْلَمُ",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ أَنْ أُشْرِكَ بِكَ وَأَنَا أَعْلَمُ، وَأَسْتَغْفِرُكَ لِمَا لَا أَعْلَمُ",
     latin: "Allahumma innii a'uudzu bika an usyrika bika wa anaa a'lamu wa astaghfiruka limaa laa a'lam.",
     translation: "Ya Allah, sesungguhnya aku berlindung kepada-Mu dari menyekutukan-Mu sedangkan aku mengetahuinya, dan aku memohon ampunan kepada-Mu atas apa yang tidak aku ketahui.",
     evidence: "Rasulullah ﷺ bersabda: 'Wahai manusia, bertakwalah kepada syirik kecil, karena ia lebih halus daripada rambut di atas batu.' Lalu beliau mengajarkan doa ini sebagai pembersih hati.",
@@ -147,7 +147,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Tasbih 100x (Subhanallah wa bihamdihi)",
-    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+    arabic: "سُبْحَانَ اللَّهِ، وَبِحَمْدِهِ",
     latin: "Subhaanallaahi wa bihamdihi.",
     translation: "Maha Suci Allah dan dengan memuji-Nya.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan Subhanallah wa bihamdihi sebanyak 100 kali dalam sehari, maka dosa-dosanya akan dihapus walaupun sebanyak buih di lautan.'",
@@ -159,7 +159,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Kalimat Tauhid 10x",
-    arabic: "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    arabic: "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
     latin: "Laa ilaaha illallaahu wahdahuu laa syariika lahuu lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syai'in qadiir.",
     translation: "Tidak ada ilah yang berhak disembah kecuali Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Maha Kuasa atas segala sesuatu.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan kalimat ini 10 kali, maka pahalanya seperti memerdekakan 4 orang budak dari keturunan Nabi Ismail.'",
@@ -171,7 +171,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Kalimat Tauhid 100x",
-    arabic: "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+    arabic: "لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
     latin: "Laa ilaaha illallaahu wahdahuu laa syariika lahuu lahul-mulku wa lahul-hamdu wa huwa 'alaa kulli syai'in qadiir.",
     translation: "Tidak ada ilah yang berhak disembah kecuali Allah semata, tidak ada sekutu bagi-Nya. Bagi-Nya kerajaan dan bagi-Nya pujian, dan Dia Maha Kuasa atas segala sesuatu.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan Laa ilaaha illallaahu wahdahu laa syariika lah... sebanyak 100 kali setiap hari, maka pahalanya seperti memerdekakan 10 budak, ditulis 100 kebaikan, dihapus 100 keburukan, dan menjadi benteng dari gangguan setan seharian penuh.'",
@@ -183,7 +183,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Perlindungan dari Bahaya & Mudarat",
-    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ",
+    arabic: "بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ، وَهُوَ السَّمِيعُ الْعَلِيمُ",
     latin: "Bismillaahilladzii laa yadhurru ma'asmihii syai'un fil-ardhi wa laa fis-samaa'i wa huwas-samii'ul-'aliim.",
     translation: "Dengan nama Allah yang bila disebut, segala sesuatu di bumi dan di langit tidak akan berbahaya. Dialah Yang Maha Mendengar lagi Maha Mengetahui.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa membaca Bismillahilladzi laa yadhurru... sebanyak 3 kali di pagi dan petang hari, maka tidak ada sesuatu pun yang dapat membahayakannya.'",
@@ -195,7 +195,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Keridhoan dalam Islam",
-    arabic: "رَضِيتُ بِاللَّهِ رَبًّا وَبِالْإِسْلَامِ دِينًا وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",
+    arabic: "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا",
     latin: "Radhiitu billaahi rabba, wa bil-Islaami diinaa, wa bi-Muhammadin shallallaahu 'alaihi wa sallama nabiyyaa.",
     translation: "Aku ridha Allah sebagai Rabbku, Islam sebagai agamaku, dan Muhammad ﷺ sebagai nabiku.",
     evidence: "Rasulullah ﷺ bersabda: 'Barangsiapa mengucapkan Radhiitu billaahi rabba... sebanyak 3 kali di pagi dan petang hari, maka Allah berhak (pasti) meridhainya pada hari kiamat.'",
@@ -207,7 +207,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Perlindungan dari Kejahatan Makhluk (Petang)",
-    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ",
+    arabic: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ، مِنْ شَرِّ مَا خَلَقَ",
     latin: "A'uudzu bikalimaatillaahit-taammaati min syarri maa khalaq.",
     translation: "Aku berlindung dengan kalimat-kalimat Allah yang sempurna dari kejahatan makhluk yang diciptakan-Nya.",
     evidence: "Rasulullah ﷺ bersabda kepada Fatimah radhiyallahu 'anha: 'Ucapkanlah A'udzu bikalimatillahit taammati min syarri maa khalaq ketika engkau masuk waktu petang.'",
@@ -219,7 +219,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Perlindungan dari Gelisah, Malas & Utang",
-    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ",
+    arabic: "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ، وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ",
     latin: "Allahumma innii a'uudzu bika minal-hammi wal-hazan, wa a'uudzu bika minal-'ajzi wal-kasal, wa a'uudzu bika minal-jubni wal-bukhl, wa a'uudzu bika min ghalabatid-daini wa qahrir-rijaal.",
     translation: "Ya Allah, sesungguhnya aku berlindung kepada-Mu dari rasa gelisah dan sedih, aku berlindung kepada-Mu dari rasa lemah dan malas, aku berlindung kepada-Mu dari sifat penakut dan kikir, serta aku berlindung kepada-Mu dari lilitan utang dan tekanan orang-orang.",
     evidence: "Rasulullah ﷺ senantiasa membaca doa ini dalam shalatnya untuk memohon perlindungan dari berbagai kesulitan hidup.",
@@ -243,7 +243,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Doa Memohon Ilmu, Rezeki & Amalan Diterima",
-    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا وَرِزْقًا طَيِّبًا وَعَمَلًا مُتَقَبَّلًا",
+    arabic: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْمًا نَافِعًا، وَرِزْقًا طَيِّبًا، وَعَمَلًا مُتَقَبَّلًا",
     latin: "Allahumma innii as'aluka 'ilman naafi'an, wa rizqan thayyiban, wa 'amalan mutaqabbalan.",
     translation: "Ya Allah, sesungguhnya aku memohon kepada-Mu ilmu yang bermanfaat, rezeki yang halal dan baik, serta amalan yang diterima.",
     evidence: "Dari Ummu Salamah radhiyallahu 'anha, ia berkata: 'Rasulullah ﷺ tidak pernah meninggalkan doa ini setelah shalat Subuh.'",
@@ -255,7 +255,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Dzikir Juwairiyah",
-    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ عَدَدَ خَلْقِهِ وَرِضَا نَفْسِهِ وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ",
+    arabic: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدَادَ كَلِمَاتِهِ",
     latin: "Subhaanallaahi wa bihamdihi, 'adada khalqih, wa ridhaa nafsih, wa zinata 'arsyih, wa midaada kalimaatih.",
     translation: "Maha Suci Allah dan dengan memuji-Nya, sebanyak jumlah makhluk-Nya, keridhaan diri-Nya, seberat timbangan 'Arsy-Nya, dan sebanyak tinta kalimat-kalimat-Nya.",
     evidence: "Rasulullah ﷺ bersabda kepada Juwairiyah radhiyallahu 'anha: 'Sesungguhnya aku telah mengucapkan kalimat setelahmu yang lebih berat timbangannya daripada apa yang kamu ucapkan dari sejak pagi hingga sekarang.'",
@@ -267,7 +267,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "Hasbunallah Wa Ni'mal Wakil",
-    arabic: "حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ",
+    arabic: "حَسْبُنَا اللَّهُ، وَنِعْمَ الْوَكِيلُ",
     latin: "Hasbunallaahu wa ni'mal wakiil.",
     translation: "Cukuplah Allah menjadi Penolong kami dan Allah adalah sebaik-baik Pelindung.",
     evidence: "Ini adalah ucapan para Nabi dan orang-orang shalih saat menghadapi musuh atau kesulitan besar. Allah berfirman: 'Orang-orang yang beriman berkata: Cukuplah Allah menjadi Penolong kami...'",
@@ -279,7 +279,7 @@ export const dzikirList: Dzikir[] = [
   },
   {
     title: "La Hawla Wala Quwwata Illa Billah",
-    arabic: "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+    arabic: "لَا حَوْلَ، وَلَا قُوَّةَ، إِلَّا بِاللَّهِ",
     latin: "Laa haula wa laa quwwata illa billaah.",
     translation: "Tidak ada daya upaya dan tidak ada kekuatan kecuali dengan pertolongan Allah.",
     evidence: "Rasulullah ﷺ bersabda kepada Abu Musa Al-Asy'ari: 'Maukah aku tunjukkan kepadamu perbendaharaan dari perbendaharaan surga?' Yaitu: Laa haula wa laa quwwata illa billaah.",
