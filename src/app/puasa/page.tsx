@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { puasaList } from "@/data/puasa";
-import { ArrowLeft, X, BookOpen, CheckCircle, Clock, Calendar, Moon, Star } from "lucide-react";
+import { ArrowLeft, X, BookOpen, CheckCircle, Clock, Calendar, Star, Search, Info } from "lucide-react";
 
 const statusConfig: Record<string, { color: string; icon: React.ReactNode; label: string }> = {
   shahih: { color: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20", icon: <CheckCircle className="w-3 h-3" />, label: "Shahih" },
@@ -21,11 +21,23 @@ const hijriMonths = [
 
 export default function PuasaPage() {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const currentItem = selectedIdx !== null ? puasaList[selectedIdx] : null;
 
-  // Pisahkan data: Rutin vs Spesifik Bulan
-  const routinePuasa = puasaList.filter(d => d.month === -1);
-  const monthlyPuasa = puasaList.filter(d => d.month !== -1);
+  // Pisahkan data berdasarkan type
+  const puasaItems = puasaList.filter(d => d.type === "puasa");
+  const haditsItems = puasaList.filter(d => d.type === "hadits");
+
+  // Untuk section kalender, pisahkan lagi: Rutin vs Spesifik Bulan
+  const routinePuasa = puasaItems.filter(d => d.month === -1);
+  const monthlyPuasa = puasaItems.filter(d => d.month !== -1);
+
+  // Search logic untuk khazanah hadits
+  const filteredHadits = haditsItems.filter(d => {
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    return d.title.toLowerCase().includes(q) || d.evidence.toLowerCase().includes(q);
+  });
 
   return (
     <div className="fixed inset-0 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat overflow-hidden">
@@ -140,7 +152,7 @@ export default function PuasaPage() {
                                   <h4 className="text-sm font-medium text-white group-hover/card:text-emerald-200 transition-colors truncate">
                                     {d.title}
                                   </h4>
-                                  <p className="text-[10px] text-white/40 truncate mt-0.5">{d.translation}</p>
+                                  <p className="text-[10px] text-white/40 truncate mt-0.5">{d.date}</p>
                                 </div>
                                 
                                 <ArrowLeft size={16} className="rotate-180 text-white/20 group-hover/card:text-emerald-400 transition-colors" />
@@ -154,6 +166,61 @@ export default function PuasaPage() {
                 </div>
               </div>
             </section>
+
+            {/* 3. Khazanah Hadits Puasa */}
+            <div className="pt-6 border-t border-white/10">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                  <span className="w-1 h-5 bg-blue-500 rounded-full"></span>
+                  Khazanah Hadits Puasa
+                </h2>
+                <span className="text-[10px] bg-white/10 px-2 py-1 rounded text-white/60">{haditsItems.length} Hadits</span>
+              </div>
+              
+              {/* Search Bar */}
+              <div className="relative mb-6">
+                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+                <input 
+                  type="text" 
+                  placeholder="Cari topik hadits puasa (contoh: sahur, berbuka)..." 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-10 pr-4 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-emerald-500/50 focus:bg-white/10 transition-all"
+                />
+              </div>
+
+              {/* Grid Hadits */}
+              {filteredHadits.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {filteredHadits.map((d, i) => {
+                    const originalIndex = puasaList.indexOf(d);
+                    const statusStyle = statusConfig[d.status] || statusConfig.shahih;
+                    
+                    return (
+                      <button 
+                        key={i} 
+                        onClick={() => setSelectedIdx(originalIndex)}
+                        className="flex flex-col items-start text-left p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 rounded-xl transition-all group"
+                      >
+                        <div className="flex items-center justify-between w-full mb-2">
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full border flex items-center gap-1 ${statusStyle.color}`}>
+                            {statusStyle.icon} {statusStyle.label}
+                          </span>
+                          <BookOpen size={14} className="text-white/20 group-hover:text-blue-400 transition-colors" />
+                        </div>
+                        <h3 className="text-sm font-medium text-white line-clamp-2 mb-1 group-hover:text-blue-200 transition-colors">{d.title}</h3>
+                        <p className="text-[10px] text-white/40 line-clamp-1">{d.source}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="text-center py-10 bg-white/5 rounded-xl border border-dashed border-white/10">
+                  <Info size={32} className="mx-auto text-white/20 mb-3" />
+                  <p className="text-white/40 text-sm">Tidak ada hadits yang cocok dengan pencarian.</p>
+                </div>
+              )}
+            </div>
 
           </div>
         </div>
@@ -175,7 +242,12 @@ export default function PuasaPage() {
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-white leading-tight">{currentItem.title}</h3>
-                  <p className="text-[10px] text-white/50">{hijriMonths[currentItem.month] || "Rutin"}</p>
+                  <p className="text-[10px] text-white/50">
+                    {currentItem.type === "puasa" 
+                      ? (currentItem.month !== -1 ? hijriMonths[currentItem.month] : "Rutin")
+                      : "Adab & Hadits Puasa"
+                    }
+                  </p>
                 </div>
               </div>
               <button onClick={() => setSelectedIdx(null)} className="p-2 hover:bg-white/10 rounded-full text-white/60 hover:text-white transition-colors">
@@ -193,34 +265,19 @@ export default function PuasaPage() {
                  </span>
               </div>
 
-              {/* Arabic Text */}
-              <div className="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6 text-center relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
-                <p className="text-2xl sm:text-3xl leading-[2] font-arabic text-white dir-rtl">
-                  {currentItem.arabic}
-                </p>
-              </div>
-
-              {/* Translation & Latin */}
-              <div className="space-y-4">
-                <div className="bg-white/5 rounded-lg p-4 border border-white/5">
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2 font-bold">Latin</p>
-                  <p className="text-sm text-neutral-300 italic leading-relaxed">{currentItem.latin}</p>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4 border border-white/5">
-                  <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2 font-bold">Arti</p>
-                  <p className="text-sm text-neutral-200 leading-relaxed">&ldquo;{currentItem.translation}&rdquo;</p>
-                </div>
-              </div>
-
               {/* Evidence / Dalil */}
-              <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <BookOpen size={14} className="text-blue-400" />
-                  <p className="text-xs font-bold text-blue-400">DALIL & KEUTAMAAN</p>
+              <div className="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
+                <div className="flex items-center gap-2 mb-3">
+                  <BookOpen size={14} className="text-emerald-400" />
+                  <p className="text-xs font-bold text-emerald-400">DALIL & KEUTAMAAN</p>
                 </div>
-                <p className="text-sm text-neutral-300 leading-relaxed mb-3">&ldquo;{currentItem.evidence}&rdquo;</p>
-                <div className="pt-3 border-t border-white/5 text-[10px] space-y-1 text-neutral-500">
+                <p className="text-sm text-neutral-200 leading-relaxed">{currentItem.evidence}</p>
+              </div>
+
+              {/* Source Info */}
+              <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-4">
+                <div className="pt-3 text-[10px] space-y-1 text-neutral-500">
                   <p>Sumber: <span className="text-neutral-300">{currentItem.source}</span></p>
                   {currentItem.statusBy && <p>Verifikasi: <span className="text-neutral-300">{currentItem.statusBy}</span></p>}
                 </div>
