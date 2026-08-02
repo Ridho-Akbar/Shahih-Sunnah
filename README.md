@@ -1,6 +1,6 @@
 # Shahih Sunnah
 
-Aplikasi ini hanyalah ikhtiar kecil untuk memudahkan kaum muslimin mengamalkan zikir pagi petang dan amalan sunnah lainnya. Segala kebenaran datangnya dari Allah, dan segala kekurangan adalah dari kami. Semoga bermanfaat dan menjadi pemberat timbangan kebaikan di yaumil hisab.
+Aplikasi ini hanyalah ikhtiar kecil untuk memudahkan kaum muslimin mengamalkan zikir pagi petang dan amalan sunnah lainnya. Segala kebenaran datangnya dari Allah, dan segala kekurangan adalah dari saya. Semoga bermanfaat dan menjadi pemberat timbangan kebaikan di yaumil hisab.
 
 Allahu a'lam bish shawab.
 
